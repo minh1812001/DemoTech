@@ -13,10 +13,10 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-        return ResponseEntity.ok(orderService.saveOrder(order));
-    }
+//    @PostMapping
+//    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
+//        return ResponseEntity.ok(orderService.saveOrder(order));
+//    }
 
     @GetMapping("/{orderCode}")
     public ResponseEntity<Order> getOrder(@PathVariable String orderCode) {
