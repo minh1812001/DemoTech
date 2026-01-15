@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: demo
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      # password: yourpassword # Bỏ comment nếu có password
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 2
+          max-wait: 2000ms # Thời gian chờ tối đa để lấy một kết nối từ pool
+      timeout: 5000ms # Thời gian timeout của kết nối
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=test_performance
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: my-group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
